@@ -7,8 +7,7 @@
                 </a>
                 <div class="nav"></div>
                 <div class="actions">
-                    <router-link class="link" to="/users/login">登陆</router-link>
-                    <router-link class="link" to="/users/signUp">注册</router-link>
+                    <a class="link" @click="showLoginModal">已注册？点击登陆</a>
                 </div>
             </div>
         </a-layout-header>
@@ -27,45 +26,86 @@
                         </div>
                     </a-col>
                     <a-col :span="10">
-                        <a-form layout="vertical" :form="signUpForm" class="signUpForm">
+                        <a-form :form="signUpForm" class="sign-up-form">
                             <h1>开始使用</h1>
                             <a-form-item
-                                    v-bind="formItemLayout"
+                                    v-bind="signUpFormItemLayout"
                                     :wrapperCol="{}"
                             >
                                 <a-input size="large" placeholder="你的姓名"></a-input>
                             </a-form-item>
                             <a-form-item
-                                    v-bind="formItemLayout"
+                                    v-bind="signUpFormItemLayout"
                                     :wrapperCol="{}"
                             >
                                 <a-input size="large" placeholder="邮箱 you@example.com"></a-input>
                             </a-form-item>
                             <a-form-item
-                                    v-bind="formItemLayout"
+                                    v-bind="signUpFormItemLayout"
                                     :wrapperCol="{}"
                             >
                                 <a-input size="large" placeholder="密码 至少包含 6 位字符"></a-input>
                             </a-form-item>
                             <a-form-item
-                                    v-bind="formItemLayout"
+                                    v-bind="signUpFormItemLayout"
                                     :wrapperCol="{}"
                             >
                                 <a-input size="large" placeholder="确认密码"></a-input>
                             </a-form-item>
                             <a-form-item>
-                                <a-button class="signUpBtn">立即注册</a-button>
+                                <a-button class="sign-up-btn">立即注册</a-button>
                             </a-form-item>
                         </a-form>
                     </a-col>
                 </a-row>
+                <a-modal
+                        v-model="loginModalVisible"
+                        title="账户登陆"
+                >
+                    <a-form :form="loginForm"  @submit="handleLogin"
+                            class='login-form'>
+                        <a-form-item>
+                            <a-input
+                                    placeholder='邮箱 you@example.com'
+
+                            >
+                                <a-icon slot="prefix" type='mail' style="color: rgba(0,0,0,.25)" />
+                            </a-input>
+                        </a-form-item>
+                        <a-form-item>
+                            <a-input
+                                    type='password'
+                                    placeholder='密码'
+                            >
+                                <a-icon slot="prefix" type='lock' style="color: rgba(0,0,0,.25)" />
+                            </a-input>
+                        </a-form-item>
+                        <a-form-item style="margin-bottom: 0">
+                            <a-checkbox
+
+                            >
+                                记住登陆
+                            </a-checkbox>
+                            <a class='login-form-forgot' href=''>忘记密码？</a>
+                        </a-form-item>
+                    </a-form>
+                    <template slot="footer">
+                        <a-button key="back" @click="closeLoginModel" size="large">取消</a-button>
+                        <a-button key="submit" type="primary" size="large" :loading="loginFormSubmitting"
+                                  @click="handleLogin">
+                            登陆
+                        </a-button>
+                    </template>
+                </a-modal>
             </div>
         </a-layout-content>
         <a-layout-footer class="footer">
             <div class="container">
                 <p>
                     🌟 Don't forget give me a star !
-                    <a href="https://github.com/elfgzp/plumber"><a-icon type="github" :spin="true" style="color: #000000"/></a>
+                    <a href="https://github.com/elfgzp/plumber">
+                        <a-icon type="github" :spin="true" style="color: #000000" />
+                    </a>
                 </p>
             </div>
             <div class="bottom">
@@ -85,9 +125,10 @@ import {
   Layout,
   Row, Col,
   Form,
-  Input,
+  Input, Checkbox,
   Button,
-  Icon
+  Icon,
+  Modal
 } from 'ant-design-vue'
 
 export default {
@@ -95,7 +136,7 @@ export default {
   data () {
     return {
       signUpForm: {},
-      formDecorator: {
+      signUpFormDecorator: {
         email: [
           'email',
           {
@@ -107,7 +148,7 @@ export default {
           }
         ]
       },
-      formItemLayout: {
+      signUpFormItemLayout: {
         labelCol: {
           xs: {span: 24},
           sm: {span: 8},
@@ -117,6 +158,22 @@ export default {
           sm: {span: 16},
         },
       },
+      loginModalVisible: false,
+      loginFormSubmitting: false,
+      loginForm: {}
+    }
+  },
+  methods: {
+    showLoginModal () {
+      console.log('login click')
+      this.loginModalVisible = true
+    },
+    closeLoginModel () {
+      this.loginModalVisible = false
+    },
+    handleSignUp () {
+    },
+    handleLogin () {
     }
   },
   components: {
@@ -129,8 +186,10 @@ export default {
     'a-form': Form,
     'a-form-item': Form.Item,
     'a-input': Input,
+    'a-checkbox': Checkbox,
     'a-button': Button,
-    'a-icon': Icon
+    'a-icon': Icon,
+    'a-modal': Modal
   }
 }
 </script>
@@ -224,14 +283,14 @@ export default {
         font-weight: 400;
     }
 
-    .content .signUpForm {
+    .content .sign-up-form {
         background-color: #FFFFFF;
         padding: 24px;
         border-radius: 3px;
 
     }
 
-    .content .signUpBtn {
+    .content .sign-up-btn {
         width: 100%;
         background-color: #2ebc4f;
         padding: 30px 32px;
@@ -247,6 +306,19 @@ export default {
         user-select: none;
         vertical-align: middle;
         white-space: nowrap;
+    }
+
+    .login-form-forgot {
+        float: right;
+        font-family: Chinese Quote,-apple-system,BlinkMacSystemFont,Segoe UI,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,sans-serif;
+        font-size: 14px;
+        font-variant: tabular-nums;
+        font-variant-ligatures: normal;
+        font-variant-caps: normal;
+        font-variant-numeric: tabular-nums;
+        font-variant-east-asian: normal;
+        margin: 0;
+        color: #1890ff;
     }
 
     .footer {
