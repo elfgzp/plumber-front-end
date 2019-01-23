@@ -10,7 +10,7 @@ export default new Router({
       name: 'home',
       component: () => import('@/pages/home')
 
-},
+  },
     {
       path: '/users/login',
       name: 'login',
@@ -18,8 +18,7 @@ export default new Router({
     },
     {
       path: '/users/signUp',
-      name: 'signUp',
-      component: () => import('@/pages/login')
+      redirect: '/'
     }
   ]
 })
