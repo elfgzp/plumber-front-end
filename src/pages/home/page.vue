@@ -19,7 +19,7 @@
                             <h1>Plumber</h1>
                             <h2>A project manager tool.</h2>
                             <p>Plumber 是一个使用 <a href="https://golang.org/">Golang</a> & <a
-                                    href="https://cn.vuejs.org/index.html">Vue</a>，使用 <a
+                                    href="https://cn.vuejs.org/index.html">Vue</a>、 <a
                                     href="https://vuecomponent.github.io/ant-design-vue/docs/vue/introduce/">Ant Design
                                 of Vue</a> 组件开发的项目管理工具，本工具为 <a href="https://github.com/elfgzp/plumber">Github
                                 开源项目</a>，使用 Kanban 的方式去管理项目的任务。</p>
