@@ -62,7 +62,7 @@
                         v-model="loginModalVisible"
                         title="账户登陆"
                 >
-                    <a-form :form="loginForm"  @submit="handleLogin"
+                    <a-form :form="loginForm" @submit="handleLogin"
                             class='login-form'>
                         <a-form-item>
                             <a-input
@@ -165,7 +165,6 @@ export default {
   },
   methods: {
     showLoginModal () {
-      console.log('login click')
       this.loginModalVisible = true
     },
     closeLoginModel () {
@@ -174,6 +173,7 @@ export default {
     handleSignUp () {
     },
     handleLogin () {
+      this.$router.push({name: 'team'})
     }
   },
   components: {
@@ -195,166 +195,5 @@ export default {
 </script>
 
 <style scoped>
-    .header {
-        position: fixed;
-        width: 100%;
-        top: 0;
-        z-index: 10;
-        font-size: 16px;
-        text-align: center;
-        transition: all .3s ease-in-out;
-    }
-
-    .header .container {
-        height: 100%;
-        position: relative;
-        margin: 0 30px;
-        display: flex;
-        align-items: center;
-    }
-
-    .logo {
-        color: #FFFFFF;
-        font: normal normal normal 14px/1 "Arial Black";
-        font-size: 32px;
-        line-height: 32px;
-        text-rendering: auto;
-        -webkit-font-smoothing: antialiased;
-    }
-
-    .nav {
-        flex: 1 1;
-    }
-
-    .actions .link {
-        margin: 0 14px;
-        color: #FFFFFF;
-        font-size: inherit;
-    }
-
-    .actions .link:hover {
-        color: #d1d5da;
-    }
-
-    .content {
-        min-height: 80vh;
-        background-color: #2b3137;
-    }
-
-    .content .container {
-        max-width: 1012px;
-        padding-top: 64px;
-        padding-bottom: 64px;
-        margin-top: 64px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .content .descr {
-        text-align: left;
-        padding: 64px 24px 0 24px;
-    }
-
-    .content .descr h1, h2 {
-        color: #FFFFFF;
-        margin-bottom: 0;
-        font: normal normal normal 14px/1 "Arial Black";
-    }
-
-    .content .descr h1 {
-        font-size: 64px;
-    }
-
-    .content .descr h2 {
-        font-size: 36px;
-    }
-
-    .content .descr p, a {
-        color: #d1d5da;
-        font-size: 21px;
-        font-weight: 400;
-        font-family: InterUI, -apple-system, BlinkMacSystemFont, Helvetica Neue, Segoe UI, Oxygen, Ubuntu, Cantarell, Open Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
-        margin: 24px 0;
-    }
-
-    .content .descr a {
-        color: #FFFFFF;
-        border-bottom: 1px solid hsla(0, 0%, 100%, .125);
-        font-weight: 400;
-    }
-
-    .content .sign-up-form {
-        background-color: #FFFFFF;
-        padding: 24px;
-        border-radius: 3px;
-
-    }
-
-    .content .sign-up-btn {
-        width: 100%;
-        background-color: #2ebc4f;
-        padding: 30px 32px;
-        border-radius: 3px;
-        border: 1px solid #2ebc4f;
-        color: #fff;
-        cursor: pointer;
-        display: inline-block;
-        font-size: 24px;
-        line-height: 4px;
-        font-weight: 500;
-        transition: .2s;
-        user-select: none;
-        vertical-align: middle;
-        white-space: nowrap;
-    }
-
-    .login-form-forgot {
-        float: right;
-        font-family: Chinese Quote,-apple-system,BlinkMacSystemFont,Segoe UI,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,sans-serif;
-        font-size: 14px;
-        font-variant: tabular-nums;
-        font-variant-ligatures: normal;
-        font-variant-caps: normal;
-        font-variant-numeric: tabular-nums;
-        font-variant-east-asian: normal;
-        margin: 0;
-        color: #1890ff;
-    }
-
-    .footer {
-        min-height: 20vh;
-        padding: 40px 0 0 0 !important;
-    }
-
-    .footer .container {
-        max-width: 1012px;
-        height: 90px;
-        margin-left: auto;
-        margin-right: auto;
-        color: #000000;
-    }
-
-    .footer .bottom {
-        height: 64px;
-        background-color: #d1d5da;
-    }
-
-    .footer .copy {
-        max-width: 1012px;
-        height: 100%;
-        margin-left: auto;
-        margin-right: auto;
-        padding: 24px 0;
-    }
-
-    .footer .copy ul {
-        font-size: 16px;
-        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
-    }
-
-    .footer .copy ul li {
-        list-style: none;
-    }
-
-
+    @import "./style.css";
 </style>

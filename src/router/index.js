@@ -9,11 +9,16 @@ export default new Router({
       path: '/',
       name: 'home',
       component: () => import('@/pages/home')
-
     },
     {
-      path: '/users/signUp',
-      redirect: '/'
+      name: 'dashboard',
+      path: '/dashboard',
+      component: () => import('@/pages/dashboard'),
+      children: [{
+        name: 'team',
+        path: '/teams',
+        component: () => import('@/pages/team'),
+      }]
     }
   ]
 })
