@@ -16,9 +16,13 @@ export default new Router({
       component: () => import('@/pages/dashboard'),
       children: [{
         name: 'team',
-        path: '/teams',
+        path: '/dashboard/teams',
         component: () => import('@/pages/team'),
+      }, {
+        name: 'project',
+        path: '/dashboard/projects',
+        component: () => import('@/pages/project'),
       }]
-    }
+    },
   ]
 })

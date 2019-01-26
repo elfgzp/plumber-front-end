@@ -107,7 +107,7 @@
     font-size: 36px;
 }
 
-#home .content .descr p, a {
+#home .content .descr p,#home .content .descr a {
     color: #d1d5da;
     font-size: 21px;
     font-weight: 400;
@@ -147,7 +147,6 @@
 }
 
 #home .login-form-forgot {
-    float: right;
     font-family: Chinese Quote, -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif;
     font-size: 14px;
     font-variant: tabular-nums;
@@ -155,7 +154,6 @@
     font-variant-caps: normal;
     font-variant-numeric: tabular-nums;
     font-variant-east-asian: normal;
-    margin: 0;
     color: #1890ff;
 }
 

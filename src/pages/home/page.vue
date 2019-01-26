@@ -81,12 +81,12 @@
                             </a-input>
                         </a-form-item>
                         <a-form-item style="margin-bottom: 0">
-                            <a-checkbox
+                                <a-checkbox
 
-                            >
-                                记住登陆
-                            </a-checkbox>
-                            <a class='login-form-forgot' href=''>忘记密码？</a>
+                                >
+                                    记住登陆
+                                </a-checkbox>
+                                <a style="float: right;margin: 0;font-size: 14px" href=''>忘记密码？</a>
                         </a-form-item>
                     </a-form>
                     <template slot="footer">

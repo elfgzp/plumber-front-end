@@ -1,4 +1,6 @@
-#team .container-box {
+@import "~@/assets/style/public.css";
+
+#team .container-box-content {
     min-height: 640px;
     border-radius: 2px;
     display: inline-block;
@@ -11,3 +13,28 @@
     color: rgba(0, 0, 0, .65);
     background-color: #FFFFFF;
 }
+
+#team .team-card .team-avatar {
+    margin: 0 5px;
+    flex: 1 1;
+}
+
+#team .container-box-actions {
+    width: 100%;
+    margin-bottom: 24px;
+}
+
+#team .container-box-actions, .search {
+    float: left
+}
+
+#team .container-box-actions, .create {
+    float: right
+}
+
+#team .team-card .team-project-link {
+    font-weight: 400;
+    font-family: InterUI, -apple-system, BlinkMacSystemFont, Helvetica Neue, Segoe UI, Oxygen, Ubuntu, Cantarell, Open Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+    margin: 24px 0;
+}
+

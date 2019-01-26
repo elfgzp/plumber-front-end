@@ -4,7 +4,7 @@ module.exports = {
       less: { // 配置less（其他样式解析用法一致）
         modifyVars: {
           'layout-header-background': '#24292e',
-          'primary-color': '#1890ff',                        // 全局主色
+          'primary-color': '#28a745',                        // 全局主色
           'link-color': '#1890ff',                           // 链接色
           'success-color': '#52c41a',                        // 成功色
           'warning-color': '#faad14',                        // 警告色
