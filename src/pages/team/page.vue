@@ -22,18 +22,18 @@
                     <!--eslint-disable-next-line-->
                     <a-list-item slot="renderItem" slot-scope="item, index" class="team-item">
 
-                        <a-card :title="item.team" :memberAvatars="item.memberAvatars" class="team-card">
-                            <a href="#" slot="extra" @click="$router.push({name:'project'})" class="team-project-link">查看项目</a>
-                            <a>
-                                <a-icon type="left" />
-                            </a>
+                        <a-card hoverable :title="item.team" :memberAvatars="item.memberAvatars" class="team-card" @click="$router.push({name:'project'})">
+                            <!--<a href="#" slot="extra" @click="$router.push({name:'project'})" class="team-project-link">查看项目</a>-->
+                            <!--<a>-->
+                                <!--<a-icon type="left" @click="console.log('member left')"/>-->
+                            <!--</a>-->
                             <template v-for="(avatar, index) in item.memberAvatars">
                                 <a-avatar :key="index" style="backgroundColor:#87d068" size="large" icon="user"
                                           class="team-avatar" />
                             </template>
-                            <a>
-                                <a-icon type="right" />
-                            </a>
+                            <!--<a>-->
+                                <!--<a-icon type="right" @click="console.log('member right')"/>-->
+                            <!--</a>-->
                         </a-card>
                     </a-list-item>
                 </a-list>
