@@ -1,4 +1,10 @@
 module.exports = {
+  pages: {
+    index: {
+      entry: './src/main.js',
+      template: './public/index.pug'
+    }
+  },
   css: { // 配置css模块
     loaderOptions: { // 向预处理器 Loader 传递配置选项
       less: { // 配置less（其他样式解析用法一致）
@@ -25,7 +31,7 @@ module.exports = {
   devServer: {
     open: process.platform === 'darwin',
     host: '0.0.0.0',
-    port: 8666,
+    port: 8282,
     https: false,
     hotOnly: false,
     proxy: null, // 设置代理
